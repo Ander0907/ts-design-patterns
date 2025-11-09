@@ -41,6 +41,7 @@ class BulletTypeFactory {
   getBulletType(name: string, damage: number, color: string): BulletType {
     const key = `${name}-${damage}-${color}`;
     if (!this.bulletTypes[key]) {
+      console.log(`%cCreando una nueva instancia de BulletType: ${name}`, COLORS.red);
       this.bulletTypes[key] = new BulletType(name, damage, color);
     }
 
