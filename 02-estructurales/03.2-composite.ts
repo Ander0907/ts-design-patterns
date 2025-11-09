@@ -44,19 +44,25 @@ class MenuItem implements MenuComponent {
 // 3. Clase MenuCategory
 // Representa una categoría de menú que puede contener otros ítems o subcategorías.
 class MenuCategory implements MenuComponent {
-  // TODO: Crear dos propiedades privadas: name y items
-  // Name sting y items arreglo de MenuComponent
-  // Name es recibida en el constructor, items se inicializa como un arreglo vacío
+  private name: string;
+  private items: MenuComponent[] = [];
 
-  //TODO: Sobrecarga de operadores - Item puede ser MenuComponent o un arreglo de MenuComponent
-  add(item: unknown): void {
-    // TODO: Implementar la sobrecarga de operadores
-    throw new Error('Method not implemented.');
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  addComponent(item: MenuComponent | MenuComponent[]): void {
+    if (Array.isArray(item)) {
+      this.items.push(...item);
+      return;
+    }
+    
+    this.items.push(item);
   }
 
   showDetails(indent: string = ''): void {
     console.log(`%c${indent}+ ${this.name}`, COLORS.blue);
-    // TODO: Implementar foreach
+    this.items.forEach(item => item.showDetails(indent + '  '));
   }
 }
 
@@ -74,25 +80,25 @@ function main() {
 
   // Crear categorías de menú y añadir ítems
   const appetizers = new MenuCategory('Entradas');
-  appetizers.add(salad);
-  appetizers.add(soup);
+  appetizers.addComponent(salad);
+  appetizers.addComponent(soup);
 
   const mainCourse = new MenuCategory('Plato Principal');
-  mainCourse.add(steak);
+  mainCourse.addComponent(steak);
 
   const beverages = new MenuCategory('Bebidas');
-  beverages.add(soda);
-  beverages.add(coffee);
+  beverages.addComponent(soda);
+  beverages.addComponent(coffee);
 
   const desserts = new MenuCategory('Postres');
-  desserts.add(dessert);
+  desserts.addComponent(dessert);
 
   // Crear un menú principal que contiene todas las categorías
   const mainMenu = new MenuCategory('Menú Principal');
-  mainMenu.add([appetizers, beverages, desserts, mainCourse]);
-  // mainMenu.add(mainCourse);
-  // mainMenu.add(beverages);
-  // mainMenu.add(desserts);
+  mainMenu.addComponent([appetizers, beverages, desserts, mainCourse]);
+  // mainMenu.addComponent(mainCourse);
+  // mainMenu.addComponent(beverages);
+  // mainMenu.addComponent(desserts);
 
   // Mostrar la estructura completa del menú
   console.log('Menú del Restaurante:');
