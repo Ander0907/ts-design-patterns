@@ -132,6 +132,14 @@ class Closing implements State {
   constructor(door: AutomaticDoor) {
     this.door = door;
     this.name = 'Cerrándose';
+    this.afterClose();
+  }
+
+  private async afterClose() {
+    await sleep(3000);
+
+    console.log('La puerta se ha abierto.');
+    this.door.setState(new Open(this.door));
   }
 
   open(): void {
