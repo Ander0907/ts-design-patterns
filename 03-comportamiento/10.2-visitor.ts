@@ -116,23 +116,22 @@ class MaintenanceCostVisitor implements Visitor {
     const cost = car.getKilometers() * 0.1 + (2024 - car.getYear()) * 50;
 
     console.log(
-      `Costo de mantenimiento para el automóvil: $${cost.toFixed(2)}`
+      `Costo de mantenimiento para el automóvil: $${cost.toFixed(2)}`,
     );
   }
 
   visitMotorcycle(motorcycle: Motorcycle): void {
     // TODO: Calcular el costo de mantenimiento para la motocicleta
-    const cost =
-      motorcycle.getKilometers() * 0.05 + (2024 - motorcycle.getYear()) * 30;
+    const cost = motorcycle.getKilometers() * 0.05 +
+      (2024 - motorcycle.getYear()) * 30;
 
     console.log(
-      `Costo de mantenimiento para la motocicleta: $${cost.toFixed(2)}`
+      `Costo de mantenimiento para la motocicleta: $${cost.toFixed(2)}`,
     );
   }
 
   visitTruck(truck: Truck): void {
-    const cost =
-      truck.getKilometers() * 0.15 +
+    const cost = truck.getKilometers() * 0.15 +
       truck.getLoadCapacity() * 20 +
       (2024 - truck.getYear()) * 100;
 
@@ -148,8 +147,8 @@ class EmissionCheckVisitor implements Visitor {
   }
 
   visitMotorcycle(motorcycle: Motorcycle): void {
-    const passes =
-      motorcycle.getYear() > 2005 && motorcycle.getKilometers() < 100_000;
+    const passes = motorcycle.getYear() > 2005 &&
+      motorcycle.getKilometers() < 100_000;
     console.log(`Motocicleta cumple con emisiones: ${passes ? 'Sí' : 'No'}`);
   }
 

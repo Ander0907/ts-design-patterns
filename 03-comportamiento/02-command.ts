@@ -9,7 +9,6 @@
  *
  * * Es útil cuando se necesita desacoplar el objeto que invoca
  * * la operación del objeto que sabe cómo realizarla.
- *
  */
 
 import { COLORS } from '../helpers/colors.ts';
@@ -111,22 +110,21 @@ function main() {
 
   do {
     console.clear();
-    const pressedButton =
-      prompt(
-        `Presiona un botón del control:
+    const pressedButton = prompt(
+      `Presiona un botón del control:
         1. Encender luz
         2. Apagar luz
         3. Encender ventilador
         4. Apagar ventilador
 
         Botón: 
-      `
-      ) ?? '';
+      `,
+    ) ?? '';
 
     remoteControl.pressButton(pressedButton);
 
     const continueProgramResponse = prompt(
-      `\n¿Deseas continuar? (y/n):`
+      `\n¿Deseas continuar? (y/n):`,
     )?.toLowerCase();
 
     continueProgram = continueProgramResponse === 'n' ? false : true;

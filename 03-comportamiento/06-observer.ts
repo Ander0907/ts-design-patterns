@@ -41,7 +41,7 @@ class YouTubeChannel {
   uploadVideo(videoTitle: string): void {
     console.log(
       `Canal ${this.name} ha subido un nuevo video %c${videoTitle}`,
-      COLORS.green
+      COLORS.green,
     );
 
     for (const subscriber of this.subscribers) {
@@ -62,7 +62,7 @@ class Subscriber implements Observer {
       `%c${this.name} %cha sido notificado: %cNuevo video ${videoTitle}`,
       COLORS.blue,
       COLORS.white,
-      COLORS.yellow
+      COLORS.yellow,
     );
   }
 }

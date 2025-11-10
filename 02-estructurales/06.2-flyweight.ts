@@ -41,7 +41,10 @@ class BulletTypeFactory {
   getBulletType(name: string, damage: number, color: string): BulletType {
     const key = `${name}-${damage}-${color}`;
     if (!this.bulletTypes[key]) {
-      console.log(`%cCreando una nueva instancia de BulletType: ${name}`, COLORS.red);
+      console.log(
+        `%cCreando una nueva instancia de BulletType: ${name}`,
+        COLORS.red,
+      );
       this.bulletTypes[key] = new BulletType(name, damage, color);
     }
 
@@ -92,7 +95,7 @@ class ShootingSystem {
     direction: number,
     type: string,
     damage: number,
-    color: string
+    color: string,
   ): void {
     const bulletType = this.factory.getBulletType(type, damage, color);
     const bullet = new Bullet(x, y, direction, bulletType);
@@ -120,7 +123,7 @@ function main() {
 
   console.log(
     `Total de balas disparadas: %c${shootingSystem.getBulletCount()}\n`,
-    COLORS.yellow
+    COLORS.yellow,
   );
 }
 

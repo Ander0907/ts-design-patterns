@@ -9,7 +9,6 @@
  *
  * * Es útil cuando se necesita desacoplar el objeto que invoca
  * * la operación del objeto que sabe cómo realizarla.
- *
  */
 
 import { COLORS } from '../helpers/colors.ts';
@@ -37,7 +36,7 @@ class TextEditor {
     this.clipboard = this.text;
     console.log(
       `Texto copiado al portapapeles: \n%c"${this.clipboard}"`,
-      COLORS.blue
+      COLORS.blue,
     );
   }
 

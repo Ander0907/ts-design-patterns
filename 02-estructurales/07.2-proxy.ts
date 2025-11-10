@@ -8,7 +8,6 @@
  * * para acceder a ciertos métodos o propiedades.
  *
  * https://refactoring.guru/es/design-patterns/proxy
- *
  */
 
 import { COLORS } from '../helpers/colors.ts';
@@ -48,7 +47,7 @@ class DocumentProxy implements Document {
     } else {
       console.log(
         `%cAcceso denegado. El usuario ${user.getName()} no tiene permisos para ver este documento.`,
-        COLORS.red
+        COLORS.red,
       );
     }
   }
@@ -77,7 +76,7 @@ class User {
 
 function main() {
   const confidentialDoc = new ConfidentialDocument(
-    'Este es el contenido confidencial del documento.'
+    'Este es el contenido confidencial del documento.',
   );
 
   const proxy = new DocumentProxy(confidentialDoc, ['admin']);

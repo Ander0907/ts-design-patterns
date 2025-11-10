@@ -80,7 +80,7 @@ class ChildVisitor implements Visitor {
     console.log(
       `Niño en Montaña Rusa: Precio con descuento de $${
         rollerCoaster.getPrice() * 0.5
-      }`
+      }`,
     );
   }
 
@@ -88,7 +88,7 @@ class ChildVisitor implements Visitor {
     console.log(
       `Niño en Casa del Terror: Precio con descuento de $${
         hauntedHouse.getPrice() * 0.7
-      }`
+      }`,
     );
   }
 
@@ -96,7 +96,7 @@ class ChildVisitor implements Visitor {
     console.log(
       `Niño en la Rueda de la Fortuna: Precio con descuento de $${
         ferrisWheel.getPrice() * 0.6
-      }`
+      }`,
     );
   }
 }
@@ -104,19 +104,19 @@ class ChildVisitor implements Visitor {
 class AdultVisitor implements Visitor {
   visitRollerCoaster(rollerCoaster: RollerCoaster): void {
     console.log(
-      `Adulto en Montaña Rusa: Precio con descuento de $${rollerCoaster.getPrice()}`
+      `Adulto en Montaña Rusa: Precio con descuento de $${rollerCoaster.getPrice()}`,
     );
   }
 
   visitHauntedHouse(hauntedHouse: HauntedHouse): void {
     console.log(
-      `Adulto en Casa del Terror: Precio con descuento de $${hauntedHouse.getPrice()}`
+      `Adulto en Casa del Terror: Precio con descuento de $${hauntedHouse.getPrice()}`,
     );
   }
 
   visitFerrisWheel(ferrisWheel: FerrisWheel): void {
     console.log(
-      `Adulto en la Rueda de la Fortuna: Precio con descuento de $${ferrisWheel.getPrice()}`
+      `Adulto en la Rueda de la Fortuna: Precio con descuento de $${ferrisWheel.getPrice()}`,
     );
   }
 }
@@ -126,7 +126,7 @@ class SeniorVisitor implements Visitor {
     console.log(
       `Adulto en Montaña Rusa: Precio con descuento de $${
         rollerCoaster.getPrice() * 0.85
-      }`
+      }`,
     );
   }
 
@@ -134,7 +134,7 @@ class SeniorVisitor implements Visitor {
     console.log(
       `Adulto en Casa del Terror: Precio con descuento de $${
         hauntedHouse.getPrice() * 0.85
-      }`
+      }`,
     );
   }
 
@@ -142,7 +142,7 @@ class SeniorVisitor implements Visitor {
     console.log(
       `Adulto en la Rueda de la Fortuna: Precio con descuento de $${
         ferrisWheel.getPrice() * 0.85
-      }`
+      }`,
     );
   }
 }

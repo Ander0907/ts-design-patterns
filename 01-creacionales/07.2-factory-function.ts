@@ -5,7 +5,6 @@
  *
  * * Es útil cuando necesitamos crear objetos o funciones de manera dinámica,
  * * es decir, en tiempo de ejecución y no en tiempo de compilación.
- *
  */
 
 //! Salida esperada
@@ -48,7 +47,7 @@ function createLogger(level: LogLevel) {
     const logMessage = `[${levelLabels[level]}:${timestamp}] ${message}`;
     console.log('%c' + logMessage, logColors[level]);
   };
-};
+}
 
 // Ejemplo de uso
 function main() {

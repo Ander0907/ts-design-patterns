@@ -5,6 +5,7 @@
 Los patrones de diseno creacionales son soluciones probadas para instanciar objetos en programacion orientada a objetos. En lugar de crear objetos de forma directa y rigida, estos patrones ofrecen modelos flexibles para producirlos, encapsulando los detalles del proceso de construccion.
 
 Son importantes porque:
+
 - Simplifican la creacion de objetos complejos y evitan repeticion de codigo.
 - Separan la logica de construccion del resto de la aplicacion, favoreciendo el encapsulamiento.
 - Facilitan la reutilizacion, el mantenimiento y la prueba del codigo.
@@ -16,21 +17,23 @@ En resumen, aplicar patrones creacionales ayuda a construir sistemas mas ordenad
 
 ### Builder Pattern
 
-**Definicion**  
+**Definicion**\
 Separar la construccion de un objeto complejo de su representacion final, permitiendo crear diferentes variantes paso a paso.
 
-**Problema que resuelve**  
+**Problema que resuelve**\
 Cuando la creacion de un objeto requiere muchos pasos u opciones (por ejemplo, construir un pedido personalizado), el constructor directo (`new`) se vuelve confuso o inflexible.
 
-**Ejemplo de la vida real**  
+**Ejemplo de la vida real**\
 Personalizar un combo en una cafeteria: eliges bebida, tamano, extras y acompanamientos. El cajero (builder) registra cada paso y al final entrega el pedido completo.
 
 **Ventajas**
+
 - Claridad al construir objetos con multiples configuraciones.
 - Evita constructores con listas enormes de parametros.
 - Reutiliza pasos comunes entre variaciones.
 
 **Desventajas**
+
 - Introduce clases adicionales (builder/director).
 - Puede ser excesivo para objetos sencillos.
 
@@ -91,20 +94,22 @@ const cursoIntensivo = new CursoBuilder()
 
 ### Factory Method Pattern
 
-**Definicion**  
+**Definicion**\
 Define una interfaz para crear objetos, pero delega a las subclases la decision de que clase instanciar.
 
-**Problema que resuelve**  
+**Problema que resuelve**\
 Cuando necesitas crear objetos relacionados y quieres evitar acoplar el codigo a clases concretas. Por ejemplo, distintos tipos de notificaciones (correo, SMS, push) que comparten una interfaz comun.
 
-**Ejemplo de la vida real**  
+**Ejemplo de la vida real**\
 Una empresa de entrega asigna un repartidor distinto segun el tipo de paquete (fragil, refrigerado, documentos), pero el cliente solo solicita el servicio general de entrega.
 
 **Ventajas**
+
 - Facilita agregar nuevas variantes sin tocar el codigo cliente.
 - Hace mas sencillo probar e intercambiar dependencias.
 
 **Desventajas**
+
 - Puede generar jerarquias amplias de clases creadoras.
 - La logica de seleccion puede dispersarse en varias subclases.
 
@@ -152,20 +157,22 @@ fabrica.notificar('Tu pedido esta en camino');
 
 ### Abstract Factory Pattern
 
-**Definicion**  
+**Definicion**\
 Provee una interfaz para crear familias completas de objetos relacionados sin especificar sus clases concretas.
 
-**Problema que resuelve**  
+**Problema que resuelve**\
 Necesitas garantizar que multiples objetos se creen en conjunto y sean compatibles entre si (por ejemplo, temas visuales con componentes coherentes).
 
-**Ejemplo de la vida real**  
+**Ejemplo de la vida real**\
 Al elegir un estilo de muebles (moderno, rustico), todas las piezas de la sala se combinan armoniosamente porque provienen de la misma coleccion.
 
 **Ventajas**
+
 - Mantiene la coherencia entre objetos relacionados.
 - Permite intercambiar familias completas (temas, configuraciones) con un solo cambio.
 
 **Desventajas**
+
 - Requiere muchas clases e interfaces; puede ser complejo.
 - Introduce capas adicionales que quiza no se necesitan en aplicaciones pequenas.
 
@@ -243,14 +250,14 @@ class PlanDeProyecto implements Documento {
   constructor(
     public titulo: string,
     public tareas: string[],
-    public presupuesto: number
+    public presupuesto: number,
   ) {}
 
   clonar() {
     return new PlanDeProyecto(
       this.titulo,
       [...this.tareas],
-      this.presupuesto
+      this.presupuesto,
     );
   }
 }
@@ -263,20 +270,22 @@ planMarketing.tareas.push('Redes sociales');
 
 ### Singleton Pattern
 
-**Definicion**  
+**Definicion**\
 Garantiza que una clase tenga una unica instancia global y provee un punto de acceso controlado a ella.
 
-**Problema que resuelve**  
+**Problema que resuelve**\
 Necesitas compartir un recurso unico (como una conexion a base de datos, configuracion global o cache) a lo largo de la aplicacion.
 
-**Ejemplo de la vida real**  
+**Ejemplo de la vida real**\
 Un panel de control centralizado que coordina todas las operaciones de un edificio inteligente. Solo hay uno y todos los subsistemas lo consultan.
 
 **Ventajas**
+
 - Evita duplicar recursos pesados.
 - Mantiene un estado global consistente.
 
 **Desventajas**
+
 - Puede dificultar pruebas al introducir estado global.
 - Si se abusa, puede generar dependencias ocultas y acoplamiento.
 
@@ -288,7 +297,10 @@ class ConfiguracionApp {
 
   static getInstance() {
     if (!this.instancia) {
-      this.instancia = new ConfiguracionApp({ modoOscuro: true, locale: 'es-MX' });
+      this.instancia = new ConfiguracionApp({
+        modoOscuro: true,
+        locale: 'es-MX',
+      });
     }
     return this.instancia;
   }
@@ -305,21 +317,23 @@ console.log(configA === configB); // true
 
 ### Factory Functions
 
-**Definicion**  
+**Definicion**\
 Funciones simples que crean y retornan objetos sin necesidad de clases, manteniendo el estado encapsulado en clausuras.
 
-**Problema que resuelve**  
+**Problema que resuelve**\
 Cuando quieres construir objetos ligeros o basados en funciones, aprovechando el paradigma funcional de JavaScript/TypeScript.
 
-**Ejemplo de la vida real**  
+**Ejemplo de la vida real**\
 Un menu que genera tarjetas personalizadas para exhibir productos a partir de datos dinamicos.
 
 **Ventajas**
+
 - Sintaxis ligera y flexible.
 - Facilitan la inmutabilidad al devolver nuevos objetos facilmente.
 - No requieren herencia ni `new`.
 
 **Desventajas**
+
 - No aprovechan el tipado estructural de clases (`instanceof`).
 - Pueden duplicar logica si la reutilizacion no se organiza bien.
 
@@ -347,21 +361,23 @@ const cursoEnOferta = cursoTS.aplicarDescuento(20);
 
 ### Inmutabilidad
 
-**Definicion**  
+**Definicion**\
 Tecnica para crear objetos cuyos estados no cambian despues de su creacion. En lugar de modificar, se generan nuevas versiones con los cambios necesarios.
 
-**Problema que resuelve**  
+**Problema que resuelve**\
 Evita efectos secundarios inesperados y facilita razonar sobre el estado, crucial en aplicaciones con muchos eventos o concurrencia.
 
-**Ejemplo de la vida real**  
+**Ejemplo de la vida real**\
 Duplicar una hoja de calculo y editar la copia para conservar el original intacto.
 
 **Ventajas**
+
 - Facilita depuracion y pruebas al prevenir cambios ocultos.
 - Trabaja muy bien con herramientas de control de estado (Redux, NgRx).
 - Permite compartir referencias sin riesgos.
 
 **Desventajas**
+
 - Puede generar mas objetos en memoria si no se usa con moderacion.
 - Requiere disciplina para evitar mutaciones directas.
 
@@ -387,17 +403,18 @@ console.log(perfilActualizado.intereses.length); // 3
 
 ## 3. Comparativa y buenas practicas
 
-| Patron               | Usalo cuando...                                                                        | Ventaja clave                                | Precauciones                           |
-|----------------------|-----------------------------------------------------------------------------------------|----------------------------------------------|----------------------------------------|
-| Builder              | Debes crear objetos complejos con muchas opciones configurables.                        | Limpia el codigo de construccion.            | Mas clases y pasos adicionales.        |
-| Factory Method       | Quieres delegar la eleccion de la implementacion concreta a subclases.                  | Permite extender facilmente nuevas variantes.| Jerarquia de fabricas puede crecer.    |
-| Abstract Factory     | Necesitas familias de objetos que deban trabajar juntas y ser consistentes.             | Garantiza compatibilidad entre objetos.      | Complejidad inicial elevada.           |
-| Prototype            | Clonar objetos costosos es mas barato que reconstruirlos desde cero.                    | Duplica configuraciones rapidamente.         | Cuidado con copias superficiales.      |
-| Singleton            | Requieres un unico punto de acceso a un recurso compartido.                             | Gestiona recursos globales unicos.           | Puede introducir estado global rigido. |
-| Factory Functions    | Prefieres funciones ligeras que creen objetos sin clases.                               | Sintaxis simple y aprovechamiento de clausuras.| Dificil usar `instanceof`.            |
-| Inmutabilidad        | Buscas estados predecibles y faciles de rastrear, especialmente en UI o programacion reactiva.| Facilita pruebas y debugging.             | Mayor consumo de memoria si abusas.    |
+| Patron            | Usalo cuando...                                                                                | Ventaja clave                                   | Precauciones                           |
+| ----------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------- | -------------------------------------- |
+| Builder           | Debes crear objetos complejos con muchas opciones configurables.                               | Limpia el codigo de construccion.               | Mas clases y pasos adicionales.        |
+| Factory Method    | Quieres delegar la eleccion de la implementacion concreta a subclases.                         | Permite extender facilmente nuevas variantes.   | Jerarquia de fabricas puede crecer.    |
+| Abstract Factory  | Necesitas familias de objetos que deban trabajar juntas y ser consistentes.                    | Garantiza compatibilidad entre objetos.         | Complejidad inicial elevada.           |
+| Prototype         | Clonar objetos costosos es mas barato que reconstruirlos desde cero.                           | Duplica configuraciones rapidamente.            | Cuidado con copias superficiales.      |
+| Singleton         | Requieres un unico punto de acceso a un recurso compartido.                                    | Gestiona recursos globales unicos.              | Puede introducir estado global rigido. |
+| Factory Functions | Prefieres funciones ligeras que creen objetos sin clases.                                      | Sintaxis simple y aprovechamiento de clausuras. | Dificil usar `instanceof`.             |
+| Inmutabilidad     | Buscas estados predecibles y faciles de rastrear, especialmente en UI o programacion reactiva. | Facilita pruebas y debugging.                   | Mayor consumo de memoria si abusas.    |
 
 **Consejos para elegir o combinar patrones**
+
 - Identifica primero el problema de creacion: complejidad, coherencia, rendimiento o estado compartido.
 - Combina patrones cuando sea util: por ejemplo, una `AbstractFactory` puede utilizar internamente `Builder` para objetos complejos.
 - Manten interfaces y tipos claros; usa `interfaces` y `type` para documentar contratos.
@@ -405,6 +422,7 @@ console.log(perfilActualizado.intereses.length); // 3
 - Refactoriza gradualmente: introduce el patron cuando detectes dolor real en la creacion de objetos.
 
 **Ejemplos en frameworks TypeScript**
+
 - Angular usa `FactoryProvider` y `Injector` (Abstract Factory + Singleton) para gestionar servicios.
 - NestJS utiliza `Providers` y `Modules` para instancias unicas (Singleton) y fabricas (`useFactory`).
 - TypeORM crea repositorios y conexiones con patrones `Factory` y `Singleton`.
@@ -415,13 +433,15 @@ console.log(perfilActualizado.intereses.length); // 3
 Los patrones creacionales te ayudan a controlar como se instancian los objetos, ofreciendo flexibilidad sin sacrificar claridad. Con TypeScript, puedes combinar tipado estatico con estos patrones para producir codigo mas mantenible y escalable.
 
 **Buenas practicas generales**
+
 - Empieza simple; introduce un patron solo cuando lo necesites.
 - Asegura que los nombres de clases y funciones comuniquen el patron (ej. `CursoBuilder`, `createUserRepository`).
 - Acompana cada patron con pruebas unitarias que verifiquen la creacion esperada.
 
 **Recursos recomendados**
-- *Head First Design Patterns* (Elisabeth Freeman, Eric Freeman).
-- *Design Patterns: Elements of Reusable Object-Oriented Software* (Gang of Four).
+
+- _Head First Design Patterns_ (Elisabeth Freeman, Eric Freeman).
+- _Design Patterns: Elements of Reusable Object-Oriented Software_ (Gang of Four).
 - Documentacion oficial de TypeScript: [https://www.typescriptlang.org/docs/](https://www.typescriptlang.org/docs/).
 - Curso gratuito sobre patrones en Refactoring Guru: [https://refactoring.guru/es/design-patterns](https://refactoring.guru/es/design-patterns).
 - Videos de Angular y NestJS en YouTube que expliquen el uso de `providers`, `injectors` y patrones de diseno.

@@ -4,7 +4,6 @@
  * El patrón Strategy es un patrón de diseño de software que define una
  * familia de algoritmos, los encapsula y los hace intercambiables.
  *
- *
  * * Es útil cuando se tiene una clase que tiene un comportamiento que puede
  * * cambiar en tiempo de ejecución y se quiere delegar la responsabilidad de
  * * la implementación a otra clase.
@@ -13,31 +12,31 @@
  */
 
 /**
- * !Objetivo: 
+ * !Objetivo:
  * Implementar el patrón Strategy para calcular los impuestos de diferentes países.
- * 
+ *
  * !Descripción del Ejercicio
 
-  Imagina que trabajas en una plataforma de comercio electrónico que opera en varios países. 
-  Cada país tiene su propio método para calcular impuestos, 
+  Imagina que trabajas en una plataforma de comercio electrónico que opera en varios países.
+  Cada país tiene su propio método para calcular impuestos,
   y necesitas implementar un sistema que sea:
 
-    1. Flexible: Permita agregar nuevos cálculos de impuestos 
+    1. Flexible: Permita agregar nuevos cálculos de impuestos
        sin modificar la lógica existente.
-    2. Dinámico: Cambie la estrategia de cálculo de impuestos en tiempo 
+    2. Dinámico: Cambie la estrategia de cálculo de impuestos en tiempo
        de ejecución según el país seleccionado.
  */
 
-/**	
-    1.	Implementar una interfaz TaxStrategy que defina un método 
+/**
+    1.	Implementar una interfaz TaxStrategy que defina un método
         calculateTax(amount: number): number.
-        
+
     2.	Crear clases específicas de estrategia para los países disponibles:
       •	USA: Impuesto del 10%.
       •	Canada: Impuesto del 13%.
       •	Germany: Impuesto del 19%.
-      
-    3.	Implementar una clase TaxCalculator que utilice las estrategias 
+
+    3.	Implementar una clase TaxCalculator que utilice las estrategias
         para calcular los impuestos.
  */
 
@@ -57,7 +56,7 @@ class USATaxStrategy implements TaxStrategy {
 
 // Estrategia 2: Impuestos en Canada
 class CanadaTaxStrategy implements TaxStrategy {
-    calculateTax(amount: number): number {
+  calculateTax(amount: number): number {
     return amount * 0.13;
   }
 }

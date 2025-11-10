@@ -32,7 +32,7 @@ class WeatherStation {
 
     console.log(
       '%cNueva aplicación suscrita al sistema meteorológico.',
-      COLORS.green
+      COLORS.green,
     );
   }
 
@@ -73,7 +73,7 @@ class WeatherApp implements Observer {
       `%c${this.name} %cha recibido notificación del clima: %c${weatherData}`,
       COLORS.red,
       COLORS.white,
-      COLORS.yellow
+      COLORS.yellow,
     );
   }
 }

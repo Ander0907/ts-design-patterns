@@ -6,7 +6,6 @@
  * * Es útil cuando se tienen múltiples implementaciones de una abstracción
  * * Se puede utilizar para separar la lógica de negocio de la lógica de presentación
  * * Se puede utilizar para separar la lógica de la interfaz de usuario también.
- *
  */
 
 import { COLORS } from '../helpers/colors.ts';
@@ -102,13 +101,13 @@ function main() {
   // Crear una notificación de recordatorio usando el canal de SMS
   const reminder = new ReminderNotification(new SMSChannel());
   reminder.notify(
-    'Recordatorio: Tu cita con el médico es mañana a las 10:00 a.m.'
+    'Recordatorio: Tu cita con el médico es mañana a las 10:00 a.m.',
   );
 
   // Cambiar el canal de recordatorio a correo electrónico y enviar nuevamente
   reminder.setChannel(new PushNotificationChannel());
   reminder.notify(
-    'Recordatorio: Tu cita con el médico es mañana a las 10:00 a.m.'
+    'Recordatorio: Tu cita con el médico es mañana a las 10:00 a.m.',
   );
 
   // Crear una notificación de push usando el canal de notificación push

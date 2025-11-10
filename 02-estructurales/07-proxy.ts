@@ -8,7 +8,6 @@
  * * para acceder a ciertos métodos o propiedades.
  *
  * https://refactoring.guru/es/design-patterns/proxy
- *
  */
 
 import { COLORS } from '../helpers/colors.ts';
@@ -50,7 +49,7 @@ class MagicPortal implements Room {
 
     console.log(
       `%cLo siento mucho ${player.name}, Tu nivel ${player.level}, es muy bajo, necesitas nivel 10`,
-      COLORS.red
+      COLORS.red,
     );
   }
 }

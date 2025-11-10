@@ -10,13 +10,12 @@
  * https://refactoring.guru/es/design-patterns/singleton
  */
 
-import { configManager } from "./singleton/config-manager.ts";
+import { configManager } from './singleton/config-manager.ts';
 
+configManager.setConfig('apiUrl', 'https://api.example.com');
+configManager.setConfig('timeout', '5000');
+configManager.setConfig('retries', '3');
 
-configManager.setConfig("apiUrl", "https://api.example.com");
-configManager.setConfig("timeout", "5000");
-configManager.setConfig("retries", "3");
-
-console.log(configManager.getConfig("apiUrl"));
-console.log(configManager.getConfig("timeout"));
-console.log(configManager.getConfig("retries"));
+console.log(configManager.getConfig('apiUrl'));
+console.log(configManager.getConfig('timeout'));
+console.log(configManager.getConfig('retries'));

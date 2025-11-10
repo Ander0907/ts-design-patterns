@@ -22,7 +22,7 @@ import { COLORS } from '../helpers/colors.ts';
  * - orderBy(field: string, order: string): QueryBuilder - opcional
  * - limit(limit: number): QueryBuilder - opcional
  * - execute(): string - retorna la consulta SQL
- * 
+ *
  ** Ejemplo de uso:
   const usersQuery = new QueryBuilder("users") // users es el nombre de la tabla
     .select("id", "name", "email")
@@ -71,9 +71,15 @@ class QueryBuilder {
 
   execute(): string {
     const fields = this.fields.length > 0 ? this.fields.join(', ') : '*';
-    const whereClause = this.conditions.length > 0 ? ` WHERE ${this.conditions.join(' AND ')}` : '';
-    const orderByClause = this.orderFields.length > 0 ? ` ORDER BY ${this.orderFields.join(', ')}` : '';
-    const limitClause = this.limitCount !== undefined ? ` LIMIT ${this.limitCount}` : '';
+    const whereClause = this.conditions.length > 0
+      ? ` WHERE ${this.conditions.join(' AND ')}`
+      : '';
+    const orderByClause = this.orderFields.length > 0
+      ? ` ORDER BY ${this.orderFields.join(', ')}`
+      : '';
+    const limitClause = this.limitCount !== undefined
+      ? ` LIMIT ${this.limitCount}`
+      : '';
 
     return `SELECT ${fields} FROM ${this.table}${whereClause}${orderByClause}${limitClause};`;
   }

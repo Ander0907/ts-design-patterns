@@ -11,7 +11,6 @@
  * * de los objetos forma una jerarquía en árbol.
  *
  * https://refactoring.guru/es/design-patterns/composite
- *
  */
 
 import { COLORS } from '../helpers/colors.ts';
@@ -36,7 +35,7 @@ class MenuItem implements MenuComponent {
   showDetails(indent: string = ''): void {
     console.log(
       `${indent}- ${this.name}: %c$${this.price.toFixed(2)}`,
-      COLORS.green
+      COLORS.green,
     );
   }
 }
@@ -56,13 +55,13 @@ class MenuCategory implements MenuComponent {
       this.items.push(...item);
       return;
     }
-    
+
     this.items.push(item);
   }
 
   showDetails(indent: string = ''): void {
     console.log(`%c${indent}+ ${this.name}`, COLORS.blue);
-    this.items.forEach(item => item.showDetails(indent + '  '));
+    this.items.forEach((item) => item.showDetails(indent + '  '));
   }
 }
 

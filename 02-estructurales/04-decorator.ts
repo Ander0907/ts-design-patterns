@@ -23,7 +23,7 @@ class BasicNotification implements Notification {
     console.log(
       `%cEnviando notificación básica: %c${message}`,
       COLORS.blue,
-      COLORS.white
+      COLORS.white,
     );
   }
 }
@@ -47,7 +47,7 @@ class EmailDecorator extends NotificationDecorator {
     console.log(
       `%cEnviando notificación por correo electrónico:%c${message}`,
       COLORS.green,
-      COLORS.white
+      COLORS.white,
     );
   }
 
@@ -62,7 +62,7 @@ class SMSDecorator extends NotificationDecorator {
     console.log(
       `%cEnviando notificación por SMS: %c${message}`,
       COLORS.red,
-      COLORS.white
+      COLORS.white,
     );
   }
 

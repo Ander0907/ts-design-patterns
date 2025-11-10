@@ -49,7 +49,7 @@ class User {
     console.log(
       `\n\n\n%c${this.username} envía: %c${message} `,
       COLORS.blue,
-      COLORS.white
+      COLORS.white,
     );
     this.chatRoom.sendMessage(this, message);
   }
@@ -58,7 +58,7 @@ class User {
     console.log(
       `%c${this.username} recibe de ${sender.username}: %c${message} `,
       COLORS.blue,
-      COLORS.white
+      COLORS.white,
     );
   }
 }

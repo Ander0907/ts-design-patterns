@@ -32,11 +32,9 @@ abstract class BaseApprover implements Approver {
     if (this.nextApprover) {
       this.nextApprover.approveRequest(amount);
       return;
-    } 
-    
-    
+    }
+
     console.log('Solicitud no pudo ser aprobada.');
-    
   }
 }
 
@@ -45,10 +43,16 @@ abstract class BaseApprover implements Approver {
 class Supervisor extends BaseApprover {
   override approveRequest(amount: number): void {
     if (amount <= 1000) {
-      console.log('%cSupervisor: Aprobando solicitud de $' + amount, COLORS.orange);
+      console.log(
+        '%cSupervisor: Aprobando solicitud de $' + amount,
+        COLORS.orange,
+      );
       return;
     }
-    console.log('%cSupervisor: Pasando solicitud de $' + amount + ' al Manager', COLORS.orange);
+    console.log(
+      '%cSupervisor: Pasando solicitud de $' + amount + ' al Manager',
+      COLORS.orange,
+    );
     super.next(amount);
   }
 }
@@ -56,10 +60,16 @@ class Supervisor extends BaseApprover {
 class Manager extends BaseApprover {
   override approveRequest(amount: number): void {
     if (amount <= 5000) {
-      console.log('%cManager: Aprobando solicitud de $' + amount, COLORS.yellow);
+      console.log(
+        '%cManager: Aprobando solicitud de $' + amount,
+        COLORS.yellow,
+      );
       return;
     }
-    console.log('%cManager: Pasando solicitud de $' + amount + ' al Director', COLORS.yellow);
+    console.log(
+      '%cManager: Pasando solicitud de $' + amount + ' al Director',
+      COLORS.yellow,
+    );
     super.next(amount);
   }
 }

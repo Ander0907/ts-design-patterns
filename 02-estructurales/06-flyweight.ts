@@ -27,7 +27,7 @@ class LocationIcon implements Location {
   display(coordinates: { x: number; y: number }): void {
     console.log(
       `Coords: ${this.type} en ${coordinates.x}, ${coordinates.y} con ícono %c[${this.iconImage}]`,
-      COLORS.green
+      COLORS.green,
     );
   }
 }

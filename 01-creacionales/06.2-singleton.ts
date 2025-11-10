@@ -39,7 +39,10 @@ class DatabaseConnection {
       this.connected = false;
       console.log('%cDisconnected from the database', COLORS.red);
     } else {
-      console.log('%cNo active database connection to disconnect', COLORS.yellow);
+      console.log(
+        '%cNo active database connection to disconnect',
+        COLORS.yellow,
+      );
     }
   }
 }

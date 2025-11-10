@@ -61,7 +61,7 @@ class Game {
       `Jugando en el nivel ${this.level}
         salud: ${this.health}
         posición: ${this.position}
-        `
+        `,
     );
   }
 
@@ -79,7 +79,7 @@ class Game {
         `,
       COLORS.yellow,
       COLORS.blue,
-      COLORS.white
+      COLORS.white,
     );
   }
 }
@@ -115,13 +115,13 @@ function main() {
   game.restore(history.pop()!);
   console.log(
     '%c\nDespués de restaurar el último estado guardado',
-    COLORS.green
+    COLORS.green,
   );
 
   game.restore(history.pop()!);
   console.log(
     '%c\nDespués de restaurar el último estado guardado',
-    COLORS.green
+    COLORS.green,
   );
 
   console.log('\n\n');

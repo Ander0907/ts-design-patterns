@@ -71,7 +71,7 @@ class WaitingForMoney implements State {
   insertMoney(): void {
     console.log(
       'Dinero insertado: %cAhora puedes seleccionar un producto',
-      COLORS.green
+      COLORS.green,
     );
 
     this.vendingMachine.setState(new ProductSelected(this.vendingMachine));
@@ -97,7 +97,7 @@ class ProductSelected implements State {
   insertMoney(): void {
     console.log(
       '%cPor favor selecciona un producto - dinero ya insertado',
-      COLORS.red
+      COLORS.red,
     );
   }
 
@@ -108,7 +108,7 @@ class ProductSelected implements State {
   dispenseProduct(): void {
     console.log(
       '%cPor favor selecciona un producto - antes de despacharlo',
-      COLORS.red
+      COLORS.red,
     );
   }
 }
@@ -132,7 +132,7 @@ class DispensingProduct implements State {
   dispenseProduct(): void {
     console.log(
       '%cProducto despachado, Cambiando estado a EsperandoDinero',
-      COLORS.green
+      COLORS.green,
     );
 
     this.vendingMachine.setState(new WaitingForMoney(this.vendingMachine));
@@ -148,7 +148,7 @@ async function main() {
     console.clear();
     console.log(
       `Selecciona una opción: %c${vendingMachine.getStateName()}`,
-      COLORS.blue
+      COLORS.blue,
     );
 
     selectedOption = prompt(
@@ -158,7 +158,7 @@ async function main() {
         3. Dispensar producto
         4. Salir
 
-        opción: `
+        opción: `,
     );
 
     switch (selectedOption) {

@@ -4,7 +4,6 @@
  * El patrón Strategy es un patrón de diseño de software que define una
  * familia de algoritmos, los encapsula y los hace intercambiables.
  *
- *
  * * Es útil cuando se tiene una clase que tiene un comportamiento que puede
  * * cambiar en tiempo de ejecución y se quiere delegar la responsabilidad de
  * * la implementación a otra clase.

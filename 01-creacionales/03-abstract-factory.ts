@@ -20,7 +20,6 @@
 
 import { COLORS } from '../helpers/colors.ts';
 
-
 interface Hamburger {
   prepare(): void;
 }
@@ -30,60 +29,60 @@ interface Drink {
 }
 
 class ChickenHamburger implements Hamburger {
-    prepare(): void {
-        console.log('Preparing %cChicken Hamburger', COLORS.blue);
-    }
+  prepare(): void {
+    console.log('Preparing %cChicken Hamburger', COLORS.blue);
+  }
 }
 
 class BeefHamburger implements Hamburger {
-    prepare(): void {
-        console.log('Preparing %cBeef Hamburger', COLORS.red);
-    }
+  prepare(): void {
+    console.log('Preparing %cBeef Hamburger', COLORS.red);
+  }
 }
 
 class SodaDrink implements Drink {
-    pour(): void {
-        console.log('Pouring %cSoda Drink', COLORS.cyan);
-    }
+  pour(): void {
+    console.log('Pouring %cSoda Drink', COLORS.cyan);
+  }
 }
 
 class JuiceDrink implements Drink {
-    pour(): void {
-        console.log('Pouring %cJuice Drink', COLORS.orange);
-    }
+  pour(): void {
+    console.log('Pouring %cJuice Drink', COLORS.orange);
+  }
 }
 
 interface RestaurantFactory {
-    createHamburger(): Hamburger;
-    createDrink(): Drink;
+  createHamburger(): Hamburger;
+  createDrink(): Drink;
 }
 
 class FastFoodRestaurantFactory implements RestaurantFactory {
-    createHamburger(): Hamburger {
-        return new BeefHamburger();
-    }
+  createHamburger(): Hamburger {
+    return new BeefHamburger();
+  }
 
-    createDrink(): Drink {
-        return new SodaDrink();
-    }
+  createDrink(): Drink {
+    return new SodaDrink();
+  }
 }
 
 class HealthyRestaurantFactory implements RestaurantFactory {
-    createHamburger(): Hamburger {
-        return new ChickenHamburger();
-    }
+  createHamburger(): Hamburger {
+    return new ChickenHamburger();
+  }
 
-    createDrink(): Drink {
-        return new JuiceDrink();
-    }
+  createDrink(): Drink {
+    return new JuiceDrink();
+  }
 }
 
 function main(factory: RestaurantFactory) {
-    const hamburger = factory.createHamburger();
-    const drink = factory.createDrink();
+  const hamburger = factory.createHamburger();
+  const drink = factory.createDrink();
 
-    hamburger.prepare();
-    drink.pour();
+  hamburger.prepare();
+  drink.pour();
 }
 
 console.log('%cFast Food Restaurant Order:', COLORS.purple);

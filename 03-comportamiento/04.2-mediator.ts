@@ -12,20 +12,20 @@
 
 /**
  * 1.	Clase ControlTower:
-	•	Actúa como el Mediador entre los aviones. 
-    La torre de control coordina las comunicaciones entre los aviones 
-    para evitar colisiones y recibir sus solicitudes de despegue 
+	•	Actúa como el Mediador entre los aviones.
+    La torre de control coordina las comunicaciones entre los aviones
+    para evitar colisiones y recibir sus solicitudes de despegue
     o aterrizaje.
 
 	2.	Clase Airplane:
-	•	Representa a un avión que puede enviar y recibir mensajes 
-    a través de la torre de control. 
-    Los aviones no se comunican directamente entre sí, 
+	•	Representa a un avión que puede enviar y recibir mensajes
+    a través de la torre de control.
+    Los aviones no se comunican directamente entre sí,
     sino a través de la torre de control, que gestiona la información.
 
 	3.	Interacciones:
-	•	Los aviones pueden solicitar permiso para aterrizar o despegar, 
-    y la torre de control enviará mensajes a los demás aviones 
+	•	Los aviones pueden solicitar permiso para aterrizar o despegar,
+    y la torre de control enviará mensajes a los demás aviones
     notificándoles de la actividad de cada avión.
  */
 
@@ -52,7 +52,7 @@ class ControlTower {
     console.log(
       `\n%cTorre de Control: %cPermiso de aterrizaje concedido a ${sender.getId()}`,
       COLORS.green,
-      COLORS.white
+      COLORS.white,
     );
 
     this.sendMessage(sender, `${sender.getId()} está aterrizando.`);
@@ -63,7 +63,7 @@ class ControlTower {
     console.log(
       `\n%cTorre de Control: %cPermiso de despegue concedido a ${sender.getId()}`,
       COLORS.green,
-      COLORS.white
+      COLORS.white,
     );
 
     this.sendMessage(sender, `${sender.getId()} está despegando.`);
@@ -103,7 +103,7 @@ class Airplane {
   receiveMessage(sender: Airplane, message: string): void {
     console.log(
       `${this.id} recibe mensaje de %c${sender.getId()}: "${message}"`,
-      COLORS.blue
+      COLORS.blue,
     );
   }
 }

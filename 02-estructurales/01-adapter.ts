@@ -11,7 +11,7 @@
  * https://refactoring.guru/es/design-patterns/adapter
  */
 
-import { DenoLoggerAdapter } from "./adapter-files/logger-adapter.ts";
+import { DenoLoggerAdapter } from './adapter-files/logger-adapter.ts';
 
 const logger = new DenoLoggerAdapter('01-adapter.ts');
 

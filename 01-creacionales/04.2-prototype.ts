@@ -3,15 +3,14 @@
 
  * Es un patrón de diseño creacional que nos permite copiar objetos existentes sin hacer
  * que el código dependa de sus clases.
- * 
- * * Es útil cuando queremos duplicar el contenido, 
+ *
+ * * Es útil cuando queremos duplicar el contenido,
  * * el título y el autor de un documento, por ejemplo o cualquier objeto complejo.
- * 
+ *
  * https://refactoring.guru/es/design-patterns/prototype
  */
 
-import { COLORS } from "../helpers/colors.ts";
-
+import { COLORS } from '../helpers/colors.ts';
 
 class Pokemon {
   name: string;
@@ -33,15 +32,15 @@ class Pokemon {
       this.name,
       this.type,
       this.level,
-      [...this.attacks]
+      [...this.attacks],
     );
   }
 
   displayInfo(): void {
     console.log(
-      `Nombre: ${this.name}\nTipo: ${this.type}\nNivel: ${
-        this.level
-      }\nAtaques: ${this.attacks.join(', ')}`
+      `Nombre: ${this.name}\nTipo: ${this.type}\nNivel: ${this.level}\nAtaques: ${
+        this.attacks.join(', ')
+      }`,
     );
   }
 }
@@ -52,15 +51,18 @@ class Pokemon {
 // 3. Llamar a displayInfo en cada Pokémon para mostrar sus detalles.
 
 function main() {
-  const basePokemon = new Pokemon("Charmander", "Fuego", 1, ["Llamarada", "Arañazo"]);
+  const basePokemon = new Pokemon('Charmander', 'Fuego', 1, [
+    'Llamarada',
+    'Arañazo',
+  ]);
   const clonePokemon = basePokemon.clone();
-  clonePokemon.name = "Charmeleon";
+  clonePokemon.name = 'Charmeleon';
   clonePokemon.level = 16;
-  clonePokemon.attacks.push("Lanzallamas");
+  clonePokemon.attacks.push('Lanzallamas');
 
-  console.log("%cInfo Pokemon base:", COLORS.brown);
+  console.log('%cInfo Pokemon base:', COLORS.brown);
   basePokemon.displayInfo();
-  console.log("%cInfo Pokemon cloned:", COLORS.blue);
+  console.log('%cInfo Pokemon cloned:', COLORS.blue);
   clonePokemon.displayInfo();
 }
 

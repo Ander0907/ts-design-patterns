@@ -37,7 +37,7 @@ class BasicSupport extends BaseHandler {
     if (request === 'básico') {
       console.log(
         'Soporte básico: %cResolviendo problema básico',
-        COLORS.green
+        COLORS.green,
       );
       return;
     }
@@ -52,14 +52,14 @@ class AdvancedSupport extends BaseHandler {
     if (request === 'avanzado') {
       console.log(
         'Soporte avanzado: %cResolviendo problema avanzado',
-        COLORS.yellow
+        COLORS.yellow,
       );
       return;
     }
 
     console.log(
       'Soporte avanzado: %cPasando el problema a soporte experto',
-      COLORS.purple
+      COLORS.purple,
     );
     super.handle(request);
   }
@@ -70,14 +70,14 @@ class ExpertSupport extends BaseHandler {
     if (request === 'experto') {
       console.log(
         'Soporte experto: %cResolviendo problema experto',
-        COLORS.yellow
+        COLORS.yellow,
       );
       return;
     }
 
     console.log(
       '%cSoporte experto: No hay nada que hacer... bye bye',
-      COLORS.red
+      COLORS.red,
     );
   }
 }

@@ -37,7 +37,7 @@ class MercadoPagoService {
   pay(amount: number): void {
     console.log(
       `Procesando pago de $${amount} con %cMercadoPago`,
-      COLORS.yellow
+      COLORS.yellow,
     );
   }
 }
@@ -53,7 +53,7 @@ class PayPalAdapter implements PaymentProcessor {
     this.paypalService = new PayPalService();
     this.amount = 0;
   }
-  
+
   processPayment(amount: number): void {
     this.amount = amount;
     this.paypalService.sendPayment(this.amount);
