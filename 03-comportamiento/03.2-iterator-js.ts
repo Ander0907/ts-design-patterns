@@ -29,11 +29,19 @@ class PokemonCollection {
   }
 
   //TODO: Implementación del iterador usando una función generadora
+  *getPokemons(): IterableIterator<Pokemon> {
+    for (const pokemon of this.pokemons) {
+      yield pokemon;
+    }
+  }
 
   // Implementación del iterador usando un método con Symbol.iterator
   // para hacer que la colección sea iterable
   // yield* delega la responsabilidad de la iteración a la colección de Pokemons
   // TODO: *[Symbol.iterator]()
+  *[Symbol.iterator](): IterableIterator<Pokemon> {
+    yield* this.pokemons;
+  }
 }
 
 // Código Cliente para probar el iterador con función generadora
@@ -52,6 +60,7 @@ function main(): void {
   // for (const pokemon of pokedex.getPokemons()) {
   //   console.log(`Pokémon: ${pokemon.name}, Tipo: ${pokemon.type}`);
   // }
+
   for (const pokemon of pokedex) {
     console.log(`Pokémon: ${pokemon.name}, Tipo: ${pokemon.type}`);
   }
